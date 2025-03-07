@@ -6,6 +6,7 @@ use App\Http\Controllers\Security\RegisterController;
 use App\Http\Controllers\Task\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Task\HistoryController;
+use App\Http\Controllers\GoogleCalendar\GoogleCalendarController;
 
 Route::get('/', [HomeController::class, 'index'])->name('app.home');
 
@@ -20,6 +21,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tasks', [TaskController::class, 'index'])->name('app.tasks.index');
     Route::get('/task/create', [TaskController::class, 'create'])->name('app.task.create');
     Route::post('/task/create/store', [TaskController::class, 'store'])->name('app.task.create.store');
+
+    Route::get('/google/calendar/create', [GoogleCalendarController::class, 'addGoogleCalendarId'])->name('app.google.calendar.create');
+    Route::post('/google/calendar/create/store', [GoogleCalendarController::class, 'store'])->name('app.google.calendar.store');
 });
 
 Route::middleware(['auth', 'taskOwner'])->group(function () {

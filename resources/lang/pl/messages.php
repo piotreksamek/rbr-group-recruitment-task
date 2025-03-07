@@ -99,4 +99,14 @@ return [
             'high' => 'Wysoki',
         ],
     ],
+    'google_calendar' => [
+        'title' => 'Kalendarz Google',
+        'create' => [
+            'title' => 'Dodaj ID kalendarza',
+            'form' => [
+                'id' => 'ID kalendarza Google',
+            ]
+        ],
+        'add_to_calendar' => 'Dodaj do kalendarza Google',
+    ]
 ];

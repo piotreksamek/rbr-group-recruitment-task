@@ -27,6 +27,7 @@ class Task extends Model
         'status',
         'due_date',
         'user_id',
+        'google_calendar_id',
     ];
 
     public function user(): BelongsTo
