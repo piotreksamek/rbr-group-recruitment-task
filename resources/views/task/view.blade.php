@@ -34,8 +34,13 @@
 
             <a href="{{ route('app.task.history.list', $task->id) }}"
                class="w-1/2 text-center py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                Historia
+                {{ __('messages.task.history.title') }}
             </a>
+
+            <button data-task-id="{{ $task->id }}" type="button" id="add-to-calendar"
+                    class="w-1/2 py-3 bg-green-600 text-center text-white font-semibold rounded-md shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+                {{ __('messages.google_calendar.add_to_calendar') }}
+            </button>
         </div>
 
         <div id="access-link-container" class="mt-6 text-center hidden">
@@ -45,4 +50,5 @@
 @endsection
 @section('javascript')
     @vite(['resources/js/task/access-token.js'])
+    @vite(['resources/js/task/google-calendar.js'])
 @endsection
