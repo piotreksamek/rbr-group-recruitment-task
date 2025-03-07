@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Task;
 
+use App\DTO\Task\TaskDTO;
+use App\Events\TaskUpdated;
 use App\Filters\TaskFilter;
 use App\Handlers\Task\CreateTaskAccessToken;
 use App\Http\Controllers\Controller;
@@ -14,6 +16,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\View\View;
 
 class TaskController extends Controller
@@ -52,9 +55,13 @@ class TaskController extends Controller
 
     public function update(TaskRequest $request, string $id): RedirectResponse
     {
+        $validated = $request->validated();
         $task = Task::findOrFail($id);
+        $originalTask = $task->getOriginal();
 
-        $task->update($request->validated());
+        $task->update($validated);
+
+        Event::dispatch(new TaskUpdated(TaskDTO::from($task->getOriginal()), TaskDTO::from($originalTask)));
 
         return redirect()->route('app.tasks.index')->with('success', 'Zaktualizowano zadanie.');
     }

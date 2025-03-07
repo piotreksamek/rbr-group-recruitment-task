@@ -31,9 +31,15 @@
                     class="w-1/2 py-3 bg-green-600 text-center text-white font-semibold rounded-md shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
                 {{ __('messages.task.view.generate_access_link') }}
             </button>
+
+            <a href="{{ route('app.task.history.list', $task->id) }}"
+               class="w-1/2 text-center py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Historia
+            </a>
         </div>
+
         <div id="access-link-container" class="mt-6 text-center hidden">
-            <p>{{ __('messages.task.view.access_link') }}: <a id="access-link" href="#" target="_blank" class="text-blue-600"></a></p>
+            <p>{{ __('messages.task.view.access_link') }}: <a id="access-link" target="_blank" class="text-blue-600"></a></p>
         </div>
     @endif
 @endsection
