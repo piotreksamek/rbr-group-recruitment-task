@@ -5,6 +5,7 @@ use App\Http\Controllers\Security\LoginController;
 use App\Http\Controllers\Security\RegisterController;
 use App\Http\Controllers\Task\TaskController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Task\HistoryController;
 
 Route::get('/', [HomeController::class, 'index'])->name('app.home');
 
@@ -25,5 +26,7 @@ Route::middleware(['auth', 'taskOwner'])->group(function () {
     Route::get('/task/edit/{id}', [TaskController::class, 'edit'])->name('app.task.edit');
     Route::put('/task/edit/{id}/store', [TaskController::class, 'update'])->name('app.task.edit.store');
     Route::delete('/task/{id}', [TaskController::class, 'destroy'])->name('app.task.destroy');
+    Route::get('/task/history/{id}', [HistoryController::class, 'list'])->name('app.task.history.list');
+    Route::get('/task/history/{id}/{historyId}', [HistoryController::class, 'view'])->name('app.task.history.view');
 });
 Route::get('/task/view/{id}', [TaskController::class, 'view'])->name('app.task.view')->middleware('viewTaskAccess');

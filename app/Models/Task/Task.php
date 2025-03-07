@@ -38,4 +38,23 @@ class Task extends Model
     {
         return $this->hasOne(TaskAccessToken::class);
     }
+
+    public function addHistory(array $oldData, array $newData): void
+    {
+        $latestVersion = $this->histories()->max('version') ?? 0;
+
+        $history = new TaskHistory([
+            'task_id' => $this->id,
+            'version' => $latestVersion + 1,
+            'old_value' => json_encode($oldData),
+            'new_value' => json_encode($newData),
+        ]);
+
+        $history->save();
+    }
+
+    public function histories()
+    {
+        return $this->hasMany(TaskHistory::class);
+    }
 }

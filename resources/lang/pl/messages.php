@@ -55,6 +55,15 @@ return [
                 'actions' => 'Akcje',
             ],
         ],
+        'history' => [
+            'title' => 'Historia',
+            'old_values' => 'Stare wartości',
+            'new_values' => 'Nowe wartości',
+            'table' => [
+                'version' => 'Wersja',
+                'show' => 'Pokaż',
+            ],
+        ],
         'filters' => [
             'priority' => 'Wybierz priorytet',
             'status' => 'Wbyierz status',
