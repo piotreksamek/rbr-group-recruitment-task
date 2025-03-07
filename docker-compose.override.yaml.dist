@@ -1,0 +1,17 @@
+services:
+  rbr-group-nginx:
+    ports:
+      - "8080:80"
+
+  rbr-group-db:
+    ports:
+      - "3306:3306"
+
+  rbr-group-php:
+    ports:
+      - "5173:5173"
+
+  rbr-group-mailer:
+    ports:
+      - "1080:1080"
+      - "1025:1025"
