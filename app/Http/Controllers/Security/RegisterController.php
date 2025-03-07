@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Security;
 
 use App\DTO\Security\RegisterUserDTO;
-use App\Handler\Security\RegisterUser;
+use App\Handlers\Security\RegisterUser;
 use App\Http\Controllers\Controller;
 use App\Http\Request\Security\RegisterRequest;
 use Illuminate\Http\RedirectResponse;

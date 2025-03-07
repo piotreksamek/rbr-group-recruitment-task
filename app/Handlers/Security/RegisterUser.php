@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Handler\Security;
+namespace App\Handlers\Security;
 
 use App\DTO\Security\RegisterUserDTO;
 use App\Models\User;

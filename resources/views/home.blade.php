@@ -11,7 +11,5 @@
         @else
             {{ __('messages.dashboard.login') }}
         @endif
-
     </div>
-
 @endsection

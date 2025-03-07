@@ -5,6 +5,7 @@ return [
         'email' => 'Email',
         'password' => 'Hasło',
         'name' => 'Imię',
+        'due_date' => 'Termin',
     ],
     'min' => [
         'string' => 'Pole :attribute musi mieć co najmniej :min znaków.',

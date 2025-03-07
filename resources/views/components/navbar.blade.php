@@ -6,6 +6,12 @@
                     <div class="flex space-x-4">
                         <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                            aria-current="page">{{ __('messages.navbar.home') }}</a>
+
+                        @if(auth()->check())
+                            <a href="{{ route('app.tasks.index') }}"
+                               class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                               aria-current="page">{{ __('messages.navbar.tasks') }}</a>
+                        @endif
                     </div>
                 </div>
             </div>
